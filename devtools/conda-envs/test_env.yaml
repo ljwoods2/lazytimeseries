@@ -9,6 +9,9 @@ dependencies:
 
   # MDAnalysis
   - MDAnalysis
+  - MDAnalysisData
+  - zarr
+  - dask
 
   # Testing
   - pytest
