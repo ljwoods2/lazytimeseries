@@ -8,11 +8,6 @@ import numpy as np
 import time
 
 
-yiip = MDAnalysisData.yiip_equilibrium.fetch_yiip_equilibrium_long(
-    data_home="."
-)
-
-
 def align_trajectory(u, outputfile):
     average = align.AverageStructure(
         u, u, select="protein and name CA", ref_frame=0
@@ -50,6 +45,9 @@ def calculate_rmsf_displace(positions):
 
 
 if __name__ == "__main__":
+    yiip = MDAnalysisData.yiip_equilibrium.fetch_yiip_equilibrium_long(
+        data_home="."
+    )
     u = mda.Universe(yiip.topology, yiip.trajectory)
     align_trajectory(u, "yiip_positions_aligned.xtc")
     u_aligned = mda.Universe(
